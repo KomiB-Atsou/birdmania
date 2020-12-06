@@ -11,7 +11,6 @@ import pywebaudioplayer as pwa
 
 # Project modules
 import model 
-import s3_utils
 
 app = Flask(__name__)
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
