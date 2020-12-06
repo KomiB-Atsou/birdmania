@@ -44,7 +44,7 @@ def load_ckp(checkpoint_fpath, model, optimizer):
 # Load model
 def load_model(path_model):
     model_loaded = model_utils.PANNsDense121Att(sample_rate=32000, window_size=1024, hop_size=320,
-                 mel_bins=64, fmin=50, fmax=14000, classes_num=264, apply_aug=True, top_db=None)
+                 mel_bins=64, fmin=50, fmax=14000, classes_num=52, apply_aug=True, top_db=None)
     optimizer_loaded = optim.AdamW(model_loaded.parameters(), lr = 0.001, betas=(0.9, 0.999), eps=1e-08, weight_decay = 0.01, amsgrad=True)
     model_loaded, optimizer_loaded, start_epoch = load_ckp(path_model, model_loaded, optimizer_loaded)
     return model_loaded
