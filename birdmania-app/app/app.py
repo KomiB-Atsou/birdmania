@@ -16,8 +16,6 @@ import s3_utils
 app = Flask(__name__)
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 app.config['UPLOAD_FOLDER'] = os.path.join(APP_ROOT, 'uploads')
-app.config["BUCKET"]  =  "2020-grads-tech-assignment-birdmania-bucket"
-app.config["AUDIO"] = "birdsong-recognition/birds_recordings_uploaded/"
 # Set the secret key to some random bytes. 
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
@@ -44,8 +42,6 @@ def upload_file():
 			prediction = model.predict('static/uploads/' + filename)			
 			session['prediction'] = prediction[0]
 			session['image_prediction'] = prediction[1]
-			# Upload file to s3
-			#s3_utils.upload_file_to_s3('static/uploads/' + filename, app.config["BUCKET"], app.config["AUDIO"] + filename)
 		return redirect("/result")
 	return (redirect('/'))
 
