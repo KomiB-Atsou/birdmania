@@ -35,10 +35,10 @@ def upload_file():
 			# Get username
 			user = session.get('username')
 			# Rename file
-			filename = rename_file(uploaded_file)
+			filename = "komi" # rename_file(uploaded_file)
 			session['filename'] = filename
 			# Identify bird specie
-			prediction = model.predict('static/uploads/' + filename)			
+			prediction = model.predict(filename)
 			session['prediction'] = prediction[0]
 			session['image_prediction'] = prediction[1]
 		return redirect("/result")
